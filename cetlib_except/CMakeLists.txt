@@ -1,3 +1,8 @@
+# ALT_CMAKE construct
+if(ALT_CMAKE)
+  include(altCMakeLists.cmake)
+else()
+
 # ======================================================================
 #
 # Build/install script
@@ -31,3 +36,5 @@ install_source()
 # ======================================================================
 # Testing
 add_subdirectory(test)
+
+endif() #ALT_CMAKE
