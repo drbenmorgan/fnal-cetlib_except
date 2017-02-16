@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.3)
 project(cetlib_except VERSION 1.0.0)
 
 # - Cetbuildtools, version2
-find_package(cetbuildtools2 0.1.0 REQUIRED)
+find_package(cetbuildtools2 1.1.0 REQUIRED)
 set(CMAKE_MODULE_PATH ${cetbuildtools2_MODULE_PATH})
 include(CetInstallDirs)
 include(CetCMakeSettings)

@@ -3,6 +3,8 @@
 #
 add_library(cetlib_except SHARED
   coded_exception.h
+  demangle.h
+  demangle.cc
   exception.cc
   exception.h
   exception_collector.cc
