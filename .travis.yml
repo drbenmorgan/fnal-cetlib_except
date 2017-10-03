@@ -1,0 +1,65 @@
+# Clearly a C++ project
+language: cpp
+
+# Need C++14, so want gcc6/7, then Xcode 9
+# NB: in Linux cases, we are using a newer GCC ABI, so will
+# require dependencies built with those! Good case for docker or pullProducts
+# see https://docs.travis-ci.com/user/languages/cpp/#GCC-on-Linux
+# for more details - can do more here, but at cost of expanding
+# build matrix
+matrix:
+  include:
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-6
+      env:
+        - MATRIX_EVAL="CC=gcc-6 && CXX=g++-6"
+    - os: linux
+      addons:
+        apt:
+          sources:
+            - ubuntu-toolchain-r-test
+          packages:
+            - g++-7
+      env:
+        - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+   - os: osx
+     osx_image: xcode9
+     compiler: clang
+
+before_install:
+  - eval "${MATRIX_EVAL}"
+
+# At least on mac, should have suitable CMake via Homebrew, but want to upgrade
+# to keep track of boost...
+# On Linux, can grab CMake bundle, or use Docker, or use pullProducts
+# need additional packages as well...
+install:
+  - |
+    if [ "$TRAVIS_OS_NAME" == "osx" ] ; then
+      brew update
+      brew outdated cmake || brew upgrade cmake
+    elif [ "$TRAVIS_OS_NAME" == "linux" ] ; then
+      wget https://cmake.org/files/v3.9/cmake-3.9.3-Linux-x86_64.tar.gz
+      tar -xf cmake-3.9.3-Linux-x86_64.tar.gz
+      export PATH=$(pwd)/cmake-3.9.3-Linux-x86_64/bin:$PATH
+    fi
+
+# Will certainly fail!!
+script:
+  - mkdir build
+  - cd build
+  - cmake -DALT_CMAKE=1 ..
+  - make -j2
+  - ctest -VV
+
+
+
+
+
+
+
