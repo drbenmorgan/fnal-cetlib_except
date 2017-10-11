@@ -10,7 +10,6 @@ add_library(cetlib_except SHARED
   exception_collector.cc
   exception_collector.h
   )
-target_compile_features(cetlib_except PUBLIC ${cetlib_except_COMPILE_FEATURES})
 target_include_directories(cetlib_except
   PUBLIC
     $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}>

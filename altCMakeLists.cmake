@@ -1,20 +1,15 @@
 # - Toplevel CMake script for fnal::cetlib_except
 cmake_minimum_required(VERSION 3.3)
-project(cetlib_except VERSION 1.1.0)
+project(cetlib_except VERSION 1.1.3)
 
 # - Cetbuildtools, version2
 find_package(cetbuildtools2 0.1.0 REQUIRED)
 set(CMAKE_MODULE_PATH ${cetbuildtools2_MODULE_PATH})
+set(CET_COMPILER_CXX_STANDARD_MINIMUM 14)
 include(CetInstallDirs)
 include(CetCMakeSettings)
 include(CetCompilerSettings)
 
-# C++ Standard Config (for 14)
-set(CMAKE_CXX_EXTENSIONS OFF)
-set(cetlib_except_COMPILE_FEATURES
-  cxx_auto_type
-  cxx_generic_lambdas
-  )
 
 #-----------------------------------------------------------------------
 # Process components
