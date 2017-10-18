@@ -42,7 +42,7 @@ before_install:
 # On Linux, can grab CMake bundle, or use Docker, or use pullProducts
 # need additional packages as well...
 install:
-  - .travis/install_dependencies.sh
+  - source .travis/install_dependencies.sh
 
 
 # Will certainly fail!!
