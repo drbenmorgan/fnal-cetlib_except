@@ -18,6 +18,7 @@ fi
 basedir=$(pwd)
 LOCALDEP_SOURCEDIR="$HOME/dep_build"
 LOCALDEP_INSTALLDIR="$HOME/dep_install"
+mkdir -p "$LOCALDEP_SOURCEDIR" "${LOCALDEP_INSTALLDIR}"
 export CMAKE_PREFIX_PATH="$LOCALDEP_INSTALLDIR"
 
 # For cetlib_except, need cetbuildtools2 only, custom branch (yep, hacky)
