@@ -1,7 +1,8 @@
 # - When user supplies "-DALT_CMAKE" use the non-CET/UPS system
 if(ALT_CMAKE)
   include(altCMakeLists.cmake)
-else()
+  return()
+endif()
 
 # ======================================================================
 #  cetlib main build file
@@ -61,4 +62,3 @@ include(UseCPack)
 
 #
 # ======================================================================
-endif() #ALT_CMAKE
