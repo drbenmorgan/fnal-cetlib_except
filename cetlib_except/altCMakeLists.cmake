@@ -3,8 +3,8 @@
 #
 add_library(cetlib_except SHARED
   coded_exception.h
-  demangle.h
   demangle.cc
+  demangle.h
   exception.cc
   exception.h
   exception_collector.cc
@@ -45,8 +45,7 @@ write_basic_package_version_file(
 
 # - Build tree (EXPORT only for now, config file needs some thought,
 #   dependent on the use of multiconfig)
-export(
-  EXPORT ${PROJECT_NAME}Targets
+export(EXPORT ${PROJECT_NAME}Targets
   NAMESPACE ${PROJECT_NAME}::
   FILE "${PROJECT_BINARY_DIR}/${PROJECT_NAME}Targets.cmake"
   )
@@ -66,8 +65,7 @@ install(
     "${CMAKE_INSTALL_CMAKEDIR}/${PROJECT_NAME}"
     )
 
-install(
-  EXPORT ${PROJECT_NAME}Targets
+install(EXPORT ${PROJECT_NAME}Targets
   NAMESPACE ${PROJECT_NAME}::
   DESTINATION "${CMAKE_INSTALL_CMAKEDIR}/${PROJECT_NAME}"
   )
