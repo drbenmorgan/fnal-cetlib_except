@@ -1,6 +1,6 @@
 # - Toplevel CMake script for fnal::cetlib_except
 cmake_minimum_required(VERSION 3.3)
-project(cetlib_except VERSION 1.2.0)
+project(cetlib_except VERSION 1.2.1)
 
 # - Cetbuildtools, version2
 find_package(cetbuildtools2 0.2.0 REQUIRED)
